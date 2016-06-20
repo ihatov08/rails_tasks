@@ -1,0 +1,20 @@
+<h1>タスク一覧</h1>
+<% if @tasks.present? %>
+  <ul>
+    <% @tasks.each do |task| %>
+    <li>
+      <%= task.name %>  |  <%= task.body %>
+    </li>
+    <% end %>
+  </ul>
+<% else %>
+<p>タスクがありません</p>
+<% end %>
+
+<%= form_for(@task) do |f| %>
+  <p>
+    名前:<%= f.text_field :name %>
+    内容:<%= f.text_field :body %>
+    <%= f.submit %>
+  </p>
+<% end %>
